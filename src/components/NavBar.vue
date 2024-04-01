@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <nav class="nav__container" ref="root">
         <ul class="nav__list">
             <li class="nav__item">

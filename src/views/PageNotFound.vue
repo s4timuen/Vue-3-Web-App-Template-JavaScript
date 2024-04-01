@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="page-not-found__view" ref="root">
         <h1>{{ $t('views.page-not-found.text') }}</h1>
     </div>

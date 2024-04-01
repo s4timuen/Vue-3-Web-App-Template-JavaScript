@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <NavBar />
   <router-view></router-view>
 </template>

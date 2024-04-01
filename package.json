@@ -31,10 +31,12 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "happy-dom": "^14.3.1",
+    "msw": "^2.2.10",
     "sass": "^1.71.1",
     "sass-loader": "^10.5.2",
     "vite": "^5.2.3",
-    "vitest": "^1.4.0"
+    "vitest": "^1.4.0",
+    "whatwg-fetch": "^3.6.20"
   },
   "eslintConfig": {
     "root": true,

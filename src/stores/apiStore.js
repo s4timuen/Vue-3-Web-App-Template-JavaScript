@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { getRandomNumber } from '@/helpers/utils.js';
+import { getRandomNumber } from '@/utils/utils.js';
 
 const useApiStore = defineStore('apiStore', {
     state: () => ({

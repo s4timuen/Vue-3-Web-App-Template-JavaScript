@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="about__view" ref="root">
     </div>
 </template>

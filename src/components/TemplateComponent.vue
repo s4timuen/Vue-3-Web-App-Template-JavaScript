@@ -1,45 +1,43 @@
-<template lang="html">
+<template>
   <div class="template__container" :id="props.id" v-if="!deleted" ref="root">
     <h3 class="template__title">{{ getTitle }}</h3>
     <p class="template__text">{{ getDescription }}</p>
     <div class="template__buttons">
       <button class="btn btn--success" @click="changeDescription()">{{ $t(`buttons.${changeOrLoading}`) }}</button>
-      <button class="btn btn--critical" @click="deleteTemplate()">{{ $t("buttons.delete") }}</button>
+      <button class="btn btn--critical" @click="deleteComponent()">{{ $t("buttons.delete") }}</button>
     </div>
   </div>
 </template>
 
 <script setup lang="js">
-import { ref, computed, defineEmits, defineProps } from 'vue';
+import { ref, computed } from 'vue';
+import { storeToRefs } from 'pinia';
 import useTemplateStore from '@/stores/templateStore.js';
 import useApiStore from '@/stores/apiStore.js';
-import { storeToRefs } from 'pinia';
+import useDeleteComponent from '@/composables/deleteComponent.js';
 
+// eslint-disable-next-line -- compiler macro
 const props = defineProps({
   id: String
 });
 
+// eslint-disable-next-line -- compiler macro
 const emits = defineEmits(['delete-template-info']);
 
+// Stores
 const templateStore = useTemplateStore();
 const apiStore = useApiStore();
-
-const root = ref(null);
-const deleted = ref(false);
-const isLoading = ref(false);
 const { getTitle, getDescription } = storeToRefs(templateStore);
 
-/**
- * Delete this component from DOM.
- */
-function deleteTemplate() {
-  emits('delete-template-info', props.id);
-  deleted.value = true;
-}
+// Delete Template
+const { root, deleted, deleteComponent } = useDeleteComponent();
 
-/**
- * Get new random lorem ipsum nd change description.
- */
+// Change Description
+const isLoading = ref(false);
+const changeOrLoading = computed(() => {
+  return isLoading.value ? 'loading' : 'change';
+});
+
 function changeDescription() {
   const changeBtn = root.value.querySelector('.btn.btn--success');
   changeBtn.disabled = true;
@@ -57,13 +55,6 @@ function changeDescription() {
       changeBtn.disabled = false;
     });
 }
-
-/**
- * Set change button to loading while loading new lorem ipsum.
- */
-const changeOrLoading = computed(() => {
-  return isLoading.value ? 'loading' : 'change';
-});
 </script>
 
 <style scoped lang="scss">

@@ -6,6 +6,14 @@ export default defineConfig({
     plugins: [vue()],
     test: {
         globals: true,
+        /*
+        onConsoleLog(log, type) {
+            console.log('log in test: ', log);
+            if (log === 'message from third party library' && type === 'stdout') {
+                return false;
+            }
+        },
+        */
         setupFiles: "src/tests/setupTests.js",
         includeSource: ["src/**/*.{js,ts,vue}"]
     },

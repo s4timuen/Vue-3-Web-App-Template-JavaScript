@@ -20,6 +20,16 @@ npm run build
 npm run lint
 ```
 
+### Testing
+Runnig tests only:
+```
+npm run test
+```
+Running tests with coverage:
+```
+npm run test-cov
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
@@ -33,8 +43,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### General
 - HTML
-- SCSS
-- JavaScript
+- CSS / SCSS
+- JavaScript / TypeScript
 - Vue (Composition-API)
 
 ### Production
@@ -47,6 +57,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Vitest (Testing)
 - Vue Test Utils (Testing)
 - Happy-DOM (Testing)
+- Whatwg-Fetch (Testing / Mocking)
+- MSW (Testing / Mocking)
 - Sass (Styling)
 - ESLint (Linting)
 

@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="home__view" ref="root">
         <TemplateComponent :id="uuid()" @delete-template-info="logId($event)"></TemplateComponent>
     </div>
@@ -11,10 +11,6 @@ import TemplateComponent from '@/components/TemplateComponent.vue';
 
 const root = ref(null);
 
-/**
- * Log component ID to console.
- * @param {string} id Component ID.
- */
 function logId(id) {
     console.log(`ID: ${id}`);
 }
